@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "Next.js Dev Server",
+      "runtimeExecutable": "/Users/sujungkim/Library/Application Support/@inspector/app/runtimes/node/22.19.0/bin/node",
+      "runtimeArgs": ["/Users/sujungkim/Projects/project-1774397869509/node_modules/.bin/next", "dev"],
+      "port": 3000
+    }
+  ]
+}

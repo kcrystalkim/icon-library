@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #F5F5F7;
+      --surface: #FFFFFF;
+      --border: #E0E0E4;
+      --border-light: #EBEBEE;
+      --text-1: #111113;
+      --text-2: #60606A;
+      --text-3: #9999A8;
+      --accent: #1260EB;
+      --accent-bg: #EEF3FE;
+      --accent-hover: #0D4CC2;
+      --green: #1B8A5A;
+      --green-bg: #EDFAF3;
+      --red: #CC3333;
+      --red-bg: #FFF0F0;
+      --orange: #B35A00;
+      --orange-bg: #FFF7EE;
+      --tag-c: #7B52D9;  --tag-c-bg: #F3EEFF;
+      --tag-t: #1B7A9A;  --tag-t-bg: #EBF7FC;
+      --tag-r: #5A7A1B;  --tag-r-bg: #F3FAEB;
+      --applied-bg: #F0FAF4;
+      --applied-border: #C6E7D4;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", system-ui, sans-serif;
+      font-size: 11px;
+      color: var(--text-1);
+      background: var(--bg);
+      line-height: 1.4;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .layout { display: flex; flex-direction: column; height: 100vh; overflow: hidden; }
+
+    /* ── Header ── */
+    .header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 10px 12px 8px;
+      flex-shrink: 0;
+    }
+    .header-title { font-size: 12px; font-weight: 600; letter-spacing: -0.01em; }
+    .header-desc { font-size: 10px; color: var(--text-3); margin-top: 2px; }
+
+    /* ── Toolbar ── */
+    .toolbar {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 6px 12px;
+      display: flex; align-items: center; gap: 6px;
+      flex-shrink: 0;
+    }
+
+    /* ── Buttons ── */
+    .btn {
+      display: inline-flex; align-items: center; gap: 4px;
+      font-family: inherit; font-size: 11px; font-weight: 500;
+      border: none; border-radius: 4px; cursor: pointer;
+      padding: 5px 10px; transition: background 0.1s, opacity 0.1s; white-space: nowrap;
+    }
+    .btn:active { opacity: 0.85; }
+    .btn:disabled { opacity: 0.35; cursor: not-allowed; }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-primary:hover:not(:disabled) { background: var(--accent-hover); }
+    .btn-ghost { background: transparent; color: var(--text-2); border: 1px solid var(--border); }
+    .btn-ghost:hover:not(:disabled) { background: var(--bg); }
+    .btn-sm { font-size: 10px; padding: 3px 7px; }
+    .btn-danger { background: transparent; color: var(--red); border: 1px solid #ecc; }
+    .btn-danger:hover:not(:disabled) { background: var(--red-bg); }
+
+    .spacer { flex: 1; }
+
+    /* ── Tabs ── */
+    .tabs {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      display: flex; flex-shrink: 0; padding: 0 12px; gap: 0;
+    }
+    .tab {
+      padding: 7px 10px 6px; font-size: 10px; font-weight: 500; color: var(--text-3);
+      cursor: pointer; border-bottom: 2px solid transparent;
+      transition: color 0.1s, border-color 0.15s; user-select: none; white-space: nowrap;
+    }
+    .tab:hover { color: var(--text-2); }
+    .tab.active { color: var(--accent); border-bottom-color: var(--accent); font-weight: 600; }
+    .tab .tab-count {
+      font-size: 9px; font-weight: 600; background: var(--bg);
+      border: 1px solid var(--border); border-radius: 2px;
+      padding: 0 4px; margin-left: 4px; line-height: 14px;
+      display: inline-block; vertical-align: middle;
+    }
+    .tab.active .tab-count { background: var(--accent-bg); border-color: #c0d0f8; color: var(--accent); }
+
+    /* ── Scroll ── */
+    .scroll-area { flex: 1; overflow-y: auto; }
+    .scroll-area::-webkit-scrollbar { width: 4px; }
+    .scroll-area::-webkit-scrollbar-track { background: transparent; }
+    .scroll-area::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+    /* ── State box ── */
+    .state-box {
+      margin: 20px 12px; background: var(--surface);
+      border: 1px solid var(--border); border-radius: 4px;
+      padding: 24px 16px; text-align: center;
+    }
+    .state-icon { font-size: 22px; margin-bottom: 6px; }
+    .state-title { font-size: 11px; font-weight: 600; margin-bottom: 3px; }
+    .state-desc { font-size: 10px; color: var(--text-3); line-height: 1.5; }
+    .state-box.error { border-color: #f0c0c0; background: var(--red-bg); }
+    .state-box.error .state-title { color: var(--red); }
+    .state-box.success { border-color: #b0e0cc; background: var(--green-bg); }
+    .state-box.success .state-title { color: var(--green); }
+
+    /* ── Issue row ── */
+    .issue-row {
+      display: flex; align-items: flex-start; gap: 8px;
+      padding: 7px 12px;
+      border-bottom: 1px solid var(--border-light);
+      background: var(--surface);
+      transition: background 0.08s;
+    }
+    .issue-row:last-child { border-bottom: none; }
+    .issue-row:hover { background: #FAFAFA; }
+
+    /* 교체 완료된 행 스타일 */
+    .issue-row.applied {
+      background: var(--applied-bg);
+      border-left: 2px solid var(--green);
+      padding-left: 10px;
+    }
+    .issue-row.applied:hover { background: #E6F5EC; }
+
+    .issue-checkbox {
+      width: 13px; height: 13px; margin-top: 1px;
+      border: 1.5px solid var(--border); border-radius: 2px;
+      background: var(--surface); cursor: pointer; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      transition: border-color 0.1s, background 0.1s;
+    }
+    .issue-checkbox.checked { background: var(--accent); border-color: var(--accent); }
+    .issue-checkbox.checked::after {
+      content: ''; width: 7px; height: 5px;
+      border-left: 1.5px solid #fff; border-bottom: 1.5px solid #fff;
+      transform: rotate(-45deg) translate(0px, -1px); display: block;
+    }
+
+    .issue-content { flex: 1; min-width: 0; }
+
+    .issue-name {
+      font-size: 11px; font-weight: 500; color: var(--accent);
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+      margin-bottom: 3px; cursor: pointer; text-decoration: none;
+    }
+    .issue-name:hover { text-decoration: underline; }
+
+    .issue-detail { display: flex; align-items: center; gap: 5px; flex-wrap: wrap; }
+
+    .value-current {
+      font-size: 10px; font-weight: 500;
+      font-family: "SF Mono", "Fira Code", "Consolas", monospace;
+      color: var(--text-2); background: var(--bg);
+      border: 1px solid var(--border); border-radius: 2px;
+      padding: 1px 5px; white-space: nowrap;
+    }
+    .arrow { color: var(--text-3); font-size: 10px; flex-shrink: 0; }
+
+    .rec-tag { font-size: 10px; font-weight: 500; border-radius: 2px; padding: 1px 5px; white-space: nowrap; }
+    .rec-variable { background: var(--accent-bg); color: var(--accent); border: 1px solid #c8d8fb; }
+    .rec-style { background: var(--orange-bg); color: var(--orange); border: 1px solid #f5d5a0; }
+    .rec-none { background: var(--bg); color: var(--text-3); border: 1px solid var(--border); font-style: italic; }
+
+    .color-swatch { width: 10px; height: 10px; border-radius: 1px; border: 1px solid rgba(0,0,0,0.1); flex-shrink: 0; display: inline-block; }
+    .prop-badge { font-size: 9px; color: var(--text-3); background: var(--bg); border: 1px solid var(--border); border-radius: 2px; padding: 0 4px; line-height: 14px; text-transform: uppercase; letter-spacing: 0.04em; }
+
+    .cat-badge { font-size: 9px; font-weight: 600; border-radius: 2px; padding: 0 4px; line-height: 14px; }
+    .cat-color { background: var(--tag-c-bg); color: var(--tag-c); }
+    .cat-typography { background: var(--tag-t-bg); color: var(--tag-t); }
+    .cat-radius { background: var(--tag-r-bg); color: var(--tag-r); }
+
+    /* 교체 완료 뱃지 */
+    .applied-badge {
+      font-size: 9px; font-weight: 600; color: var(--green);
+      background: var(--green-bg); border: 1px solid var(--applied-border);
+      border-radius: 2px; padding: 0 4px; line-height: 14px;
+      white-space: nowrap;
+    }
+
+    /* ── Footer ── */
+    .footer {
+      background: var(--surface); border-top: 1px solid var(--border);
+      padding: 7px 12px; display: flex; align-items: center; gap: 6px;
+      flex-shrink: 0;
+    }
+    .footer-info { font-size: 10px; color: var(--text-3); }
+
+    /* ── Toast ── */
+    .toast-container {
+      position: fixed; bottom: 56px; left: 50%; transform: translateX(-50%);
+      z-index: 999; pointer-events: none; display: flex; flex-direction: column; align-items: center; gap: 4px;
+    }
+    .toast {
+      background: #1a1a1a; color: #fff; font-size: 10px; padding: 5px 12px;
+      border-radius: 4px; opacity: 0; transition: opacity 0.2s; white-space: nowrap;
+    }
+    .toast.success { background: #1B6B45; }
+    .toast.error { background: #a02020; }
+    .toast.visible { opacity: 1; }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .spinner { width: 12px; height: 12px; border: 2px solid rgba(255,255,255,0.3); border-top-color: #fff; border-radius: 50%; animation: spin 0.6s linear infinite; display: none; }
+    .btn.loading .spinner { display: block; }
+    .btn.loading .btn-label { display: none; }
+
+    .empty-tab { padding: 40px 16px; text-align: center; color: var(--text-3); font-size: 10px; }
+  </style>
+</head>
+<body>
+
+<div class="layout">
+
+  <div class="header">
+    <div class="header-title">Token Inspector</div>
+    <div class="header-desc">Variables & Styles 미사용 요소 탐지 / 추천 / 교체</div>
+  </div>
+
+  <div class="toolbar">
+    <button class="btn btn-primary" id="btn-scan">
+      <span class="spinner"></span>
+      <span class="btn-label">선택 영역 스캔</span>
+    </button>
+    <span class="spacer"></span>
+    <button class="btn btn-ghost btn-sm" id="btn-select-all" style="display:none;">전체 선택</button>
+    <button class="btn btn-ghost btn-sm" id="btn-deselect-all" style="display:none;">전체 해제</button>
+  </div>
+
+  <!-- Tabs: Type → Typo 변경 -->
+  <div class="tabs" id="tabs" style="display:none;">
+    <div class="tab active" data-tab="all">전체<span class="tab-count" id="cnt-all">0</span></div>
+    <div class="tab" data-tab="color">Color<span class="tab-count" id="cnt-color">0</span></div>
+    <div class="tab" data-tab="typography">Typo<span class="tab-count" id="cnt-type">0</span></div>
+    <div class="tab" data-tab="radius">Radius<span class="tab-count" id="cnt-radius">0</span></div>
+  </div>
+
+  <div class="scroll-area" id="results-area">
+    <div class="state-box">
+      <div class="state-icon">🔍</div>
+      <div class="state-title">스캔 준비</div>
+      <div class="state-desc">프레임 또는 레이어를 선택한 후<br>"선택 영역 스캔" 버튼을 클릭하세요</div>
+    </div>
+  </div>
+
+  <div class="footer" id="footer" style="display:none;">
+    <span class="footer-info" id="footer-info">0개 선택됨</span>
+    <span class="spacer"></span>
+    <button class="btn btn-danger btn-sm" id="btn-undo" style="display:none;">되돌리기</button>
+    <button class="btn btn-primary" id="btn-apply" disabled>
+      <span class="spinner"></span>
+      <span class="btn-label">선택 항목 교체</span>
+    </button>
+  </div>
+</div>
+
+<div class="toast-container" id="toast-container"></div>
+
+<script>
+  var state = { issues: [], activeTab: "all", canUndo: false };
+
+  var btnScan = document.getElementById("btn-scan");
+  var btnApply = document.getElementById("btn-apply");
+  var btnUndo = document.getElementById("btn-undo");
+  var btnSelectAll = document.getElementById("btn-select-all");
+  var btnDeselectAll = document.getElementById("btn-deselect-all");
+  var resultsArea = document.getElementById("results-area");
+  var footerEl = document.getElementById("footer");
+  var footerInfo = document.getElementById("footer-info");
+  var tabsEl = document.getElementById("tabs");
+  var toastContainer = document.getElementById("toast-container");
+  var cntAll = document.getElementById("cnt-all");
+  var cntColor = document.getElementById("cnt-color");
+  var cntType = document.getElementById("cnt-type");
+  var cntRadius = document.getElementById("cnt-radius");
+
+  // ── Events ────────────────────────────────────────────────
+  btnScan.addEventListener("click", function () {
+    setLoading(btnScan, true);
+    parent.postMessage({ pluginMessage: { type: "scan" } }, "*");
+  });
+
+  btnApply.addEventListener("click", function () {
+    var selected = getVisibleIssues().filter(function (i) { return i.selected && i.recommendation; });
+    if (selected.length === 0) { showToast("선택된 항목이 없습니다."); return; }
+    setLoading(btnApply, true);
+    parent.postMessage({ pluginMessage: { type: "apply", items: selected } }, "*");
+  });
+
+  btnUndo.addEventListener("click", function () {
+    parent.postMessage({ pluginMessage: { type: "undo" } }, "*");
+  });
+
+  btnSelectAll.addEventListener("click", function () {
+    getVisibleIssues().forEach(function (i) { if (i.recommendation && !i.applied) i.selected = true; });
+    renderList(); updateFooter();
+  });
+
+  btnDeselectAll.addEventListener("click", function () {
+    getVisibleIssues().forEach(function (i) { i.selected = false; });
+    renderList(); updateFooter();
+  });
+
+  tabsEl.addEventListener("click", function (e) {
+    var tab = e.target.closest(".tab");
+    if (!tab) return;
+    state.activeTab = tab.dataset.tab;
+    var tabs = tabsEl.querySelectorAll(".tab");
+    for (var i = 0; i < tabs.length; i++) tabs[i].classList.remove("active");
+    tab.classList.add("active");
+    renderList(); updateFooter();
+  });
+
+  // ── Plugin messages ───────────────────────────────────────
+  window.onmessage = function (event) {
+    var msg = event.data.pluginMessage;
+    if (!msg) return;
+
+    if (msg.type === "scan-start") {
+      resultsArea.innerHTML = '<div class="state-box"><div class="state-icon">⏳</div><div class="state-title">스캔 중...</div><div class="state-desc">레이어를 분석하고 있습니다</div></div>';
+    }
+
+    else if (msg.type === "scan-result") {
+      setLoading(btnScan, false);
+      if (msg.error) {
+        resultsArea.innerHTML = '<div class="state-box error"><div class="state-icon">⚠️</div><div class="state-title">스캔 실패</div><div class="state-desc">' + esc(msg.error) + '</div></div>';
+        tabsEl.style.display = "none"; footerEl.style.display = "none";
+        btnSelectAll.style.display = "none"; btnDeselectAll.style.display = "none";
+        return;
+      }
+
+      state.issues = msg.issues || [];
+      state.activeTab = "all";
+
+      var tabs = tabsEl.querySelectorAll(".tab");
+      for (var i = 0; i < tabs.length; i++) tabs[i].classList.toggle("active", tabs[i].dataset.tab === "all");
+
+      updateTabCounts(); renderList(); updateFooter();
+
+      var has = state.issues.length > 0;
+      tabsEl.style.display = has ? "flex" : "none";
+      footerEl.style.display = has ? "flex" : "none";
+      btnSelectAll.style.display = has ? "" : "none";
+      btnDeselectAll.style.display = has ? "" : "none";
+    }
+
+    else if (msg.type === "apply-result") {
+      setLoading(btnApply, false);
+      state.canUndo = msg.canUndo;
+      btnUndo.style.display = msg.canUndo ? "" : "none";
+
+      // 교체된 항목에 applied 표시
+      if (msg.appliedIds && msg.appliedIds.length > 0) {
+        for (var a = 0; a < msg.appliedIds.length; a++) {
+          var appliedItem = state.issues.find(function (x) { return x.id === msg.appliedIds[a]; });
+          if (appliedItem) {
+            appliedItem.applied = true;
+            appliedItem.selected = false; // 교체 완료된 항목은 선택 해제
+          }
+        }
+        renderList();
+        updateFooter();
+      }
+
+      if (msg.errorCount === 0) {
+        showToast(msg.successCount + "개 항목 교체 완료", "success");
+      } else if (msg.successCount > 0) {
+        showToast(msg.successCount + "개 성공, " + msg.errorCount + "개 실패", "error");
+      } else {
+        showToast("교체 실패 (" + msg.errorCount + "개 오류)", "error");
+      }
+    }
+
+    else if (msg.type === "undo-result") {
+      state.canUndo = msg.canUndo;
+      btnUndo.style.display = msg.canUndo ? "" : "none";
+
+      // undo 시 applied 상태 초기화 (마지막 applied 항목들)
+      state.issues.forEach(function (item) { item.applied = false; });
+      renderList(); updateFooter();
+
+      if (msg.success) {
+        showToast(msg.restoredCount + "개 항목 되돌리기 완료", "success");
+      } else {
+        showToast(msg.message || "되돌리기 실패", "error");
+      }
+    }
+  };
+
+  // ── Helpers ───────────────────────────────────────────────
+  function getVisibleIssues() {
+    if (state.activeTab === "all") return state.issues;
+    return state.issues.filter(function (i) { return i.category === state.activeTab; });
+  }
+
+  function updateTabCounts() {
+    var c = 0, t = 0, r = 0;
+    state.issues.forEach(function (i) {
+      if (i.category === "color") c++;
+      else if (i.category === "typography") t++;
+      else if (i.category === "radius") r++;
+    });
+    cntAll.textContent = state.issues.length;
+    cntColor.textContent = c;
+    cntType.textContent = t;
+    cntRadius.textContent = r;
+  }
+
+  // ── Render ────────────────────────────────────────────────
+  function renderList() {
+    var items = getVisibleIssues();
+
+    if (state.issues.length === 0) {
+      resultsArea.innerHTML = '<div class="state-box success"><div class="state-icon">✅</div><div class="state-title">모두 정상</div><div class="state-desc">미사용 Variables/Styles가 없습니다</div></div>';
+      return;
+    }
+    if (items.length === 0) {
+      resultsArea.innerHTML = '<div class="empty-tab">이 카테고리에 해당하는 문제가 없습니다</div>';
+      return;
+    }
+
+    var html = "";
+    for (var i = 0; i < items.length; i++) html += renderRow(items[i]);
+    resultsArea.innerHTML = html;
+  }
+
+  function renderRow(item) {
+    var rec = item.recommendation;
+    var isApplied = item.applied;
+
+    // Category badge (전체 탭에서만)
+    var catBadge = "";
+    if (state.activeTab === "all") {
+      // Type → Typo 라벨 변경
+      var catLabel = item.category === "color" ? "Color" : item.category === "typography" ? "Typo" : "Radius";
+      catBadge = '<span class="cat-badge cat-' + item.category + '">' + catLabel + '</span>';
+    }
+
+    var swatch = "";
+    if (item.category === "color" && /^#[0-9A-Fa-f]{6}$/.test(item.currentValue)) {
+      swatch = '<span class="color-swatch" style="background:' + item.currentValue + '"></span>';
+    }
+
+    // 추천 태그 또는 교체완료 뱃지
+    // displayName: "semantic/" 접두어 제거된 이름 (없으면 name fallback)
+    var recHtml = "";
+    var displayLabel = rec ? esc(rec.displayName || rec.name) : "";
+    if (isApplied && rec) {
+      recHtml = '<span class="applied-badge">교체됨</span> ';
+      var cls = rec.type === "variable" ? "rec-variable" : "rec-style";
+      var pfx = rec.type === "variable" ? "⬡ " : "◈ ";
+      recHtml += '<span class="rec-tag ' + cls + '" title="' + esc(rec.name) + '">' + pfx + displayLabel + '</span>';
+    } else if (rec) {
+      var cls2 = rec.type === "variable" ? "rec-variable" : "rec-style";
+      var pfx2 = rec.type === "variable" ? "⬡ " : "◈ ";
+      recHtml = '<span class="rec-tag ' + cls2 + '" title="' + esc(rec.name) + '">' + pfx2 + displayLabel + '</span>';
+    } else {
+      recHtml = '<span class="rec-tag rec-none">추천 없음</span>';
+    }
+
+    var propBadge = "";
+    if (item.property === "stroke") propBadge = '<span class="prop-badge">stroke</span>';
+    else if (item.property === "fill") propBadge = '<span class="prop-badge">fill</span>';
+
+    var rowClass = "issue-row" + (isApplied ? " applied" : "");
+
+    return '<div class="' + rowClass + '">' +
+      '<div class="issue-checkbox ' + (item.selected ? "checked" : "") + '" data-id="' + item.id + '" onclick="toggleCheck(this)"></div>' +
+      '<div class="issue-content">' +
+        '<div class="issue-name" onclick="focusNode(\'' + item.nodeId + '\')" title="클릭하면 해당 레이어로 이동">' + esc(item.nodeName) + '</div>' +
+        '<div class="issue-detail">' +
+          catBadge + swatch +
+          '<span class="value-current">' + esc(item.currentValue) + '</span>' +
+          propBadge +
+          '<span class="arrow">→</span>' +
+          recHtml +
+        '</div>' +
+      '</div>' +
+    '</div>';
+  }
+
+  // ── Interactions ──────────────────────────────────────────
+  function toggleCheck(el) {
+    var id = el.dataset.id;
+    var item = state.issues.find(function (i) { return i.id === id; });
+    if (!item || item.applied) return; // 교체된 항목은 토글 불가
+    item.selected = !item.selected;
+    el.classList.toggle("checked", item.selected);
+    updateFooter();
+  }
+  window.toggleCheck = toggleCheck;
+
+  function focusNode(nodeId) {
+    parent.postMessage({ pluginMessage: { type: "focus-node", nodeId: nodeId } }, "*");
+  }
+  window.focusNode = focusNode;
+
+  function updateFooter() {
+    var visible = getVisibleIssues();
+    var selectedCount = visible.filter(function (i) { return i.selected && i.recommendation && !i.applied; }).length;
+    footerInfo.textContent = selectedCount + "개 선택됨";
+    btnApply.disabled = selectedCount === 0;
+  }
+
+  function setLoading(btn, on) {
+    if (on) { btn.classList.add("loading"); btn.disabled = true; }
+    else { btn.classList.remove("loading"); btn.disabled = false; }
+  }
+
+  function showToast(msg, type) {
+    var t = document.createElement("div");
+    t.className = "toast" + (type ? " " + type : "");
+    t.textContent = msg;
+    toastContainer.appendChild(t);
+    requestAnimationFrame(function () {
+      t.classList.add("visible");
+      setTimeout(function () { t.classList.remove("visible"); setTimeout(function () { t.remove(); }, 200); }, 2200);
+    });
+  }
+  window.showToast = showToast;
+
+  function esc(s) {
+    if (s == null) return "";
+    return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+  }
+</script>
+</body>
+</html>
