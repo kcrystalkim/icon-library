@@ -401,7 +401,7 @@ export default function IconLibraryPage() {
     return () => window.removeEventListener("keydown", handler);
   }, []);
 
-  const icons = manifest?.icons ?? [];
+  const icons = useMemo(() => manifest?.icons ?? [], [manifest]);
   const categories = useMemo(() => getCategories(icons), [icons]);
 
   const filteredIcons = useMemo(
