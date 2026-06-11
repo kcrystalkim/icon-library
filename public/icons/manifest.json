@@ -281,10 +281,10 @@
       "category": "File",
       "type": "monochrome",
       "keywords": [
-        "link",
-        "file"
+        "file",
+        "link"
       ],
-      "innerSvg": "<g clip-path=\"url(#clip0_347_2356)\">\n<path d=\"M14.5453 11.515L15.3029 10.7574C16.9766 9.08371 16.9766 6.37015 15.3029 4.69647C13.6292 3.0228 10.9157 3.0228 9.242 4.69647L8.48439 5.45409\" stroke=\"#1B1B1B\" stroke-linecap=\"round\"/>\n<path d=\"M12.2726 13.7887L10.7574 15.3039C9.08371 16.9776 6.37015 16.9776 4.69647 15.3039C3.0228 13.6302 3.0228 10.9167 4.69647 9.24298L6.2117 7.72775\" stroke=\"#1B1B1B\" stroke-linecap=\"round\"/>\n<path d=\"M11.8936 8.10547L8.10548 11.8935\" stroke=\"#1B1B1B\" stroke-linecap=\"round\"/>\n</g>\n<defs>\n<clipPath id=\"clip0_347_2356\">\n<rect width=\"20\" height=\"20\" fill=\"white\"/>\n</clipPath>\n</defs>"
+      "innerSvg": "<g clip-path=\"url(#clip0_5131_29901)\">\n<path d=\"M14.5454 11.515L15.303 10.7574C16.9767 9.08371 16.9767 6.37015 15.303 4.69647C13.6294 3.0228 10.9158 3.0228 9.24212 4.69647L8.48451 5.45409\" stroke=\"#1B1B1B\" stroke-linecap=\"round\"/>\n<path d=\"M12.2726 13.7877L10.7574 15.3029C9.08368 16.9766 6.37012 16.9766 4.69644 15.3029C3.02277 13.6292 3.02277 10.9157 4.69644 9.242L6.21167 7.72677\" stroke=\"#1B1B1B\" stroke-linecap=\"round\"/>\n<path d=\"M11.8939 8.10547L8.10579 11.8935\" stroke=\"#1B1B1B\" stroke-linecap=\"round\"/>\n</g>\n<defs>\n<clipPath id=\"clip0_5131_29901\">\n<rect width=\"20\" height=\"20\" fill=\"white\"/>\n</clipPath>\n</defs>"
     },
     {
       "id": "badge_check_fill",
