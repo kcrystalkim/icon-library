@@ -6,12 +6,8 @@
   "ui": "ui.html",
   "editorType": ["figma"],
   "networkAccess": {
-    "allowedDomains": [
-      "https://icon-library-flax.vercel.app"
-    ],
-    "devAllowedDomains": [
-      "http://localhost:3000"
-    ],
-    "reasoning": "Upload icons to the Icon Library web app"
+    "allowedDomains": ["https://icon-library-flax.vercel.app"],
+    "devAllowedDomains": ["http://localhost:3000"],
+    "reasoning": "Upload SVG icons from Figma to the Icon Library web app"
   }
 }

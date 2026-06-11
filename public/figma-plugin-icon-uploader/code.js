@@ -24,9 +24,11 @@ async function exportSelected() {
         svg += String.fromCharCode(arr[i]);
       }
 
-      // Clean name: remove "icon_", "ic_", "ic/" prefixes
+      // Clean name: remove common prefixes and state/color/size suffixes
       const rawName = node.name
         .replace(/^(icon[_\-\/\s]|ic[_\-\/\s])/i, "")
+        .replace(/[_\-](bk|wh|gr|rd|gn|ye|bl|enabled|pressed|disabled|hover|active|focus|default)$/i, "")
+        .replace(/[_\-]\d+(px)?$/i, "")
         .trim();
 
       icons.push({ name: rawName, svg, nodeId: node.id });
