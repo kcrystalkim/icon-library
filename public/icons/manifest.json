@@ -1,197 +1,263 @@
 {
   "version": "1.0.0",
-  "updatedAt": "2026-04-13",
+  "updatedAt": "2026-06-11",
   "icons": [
     {
-      "id": "arrow_right_line",
-      "name": "Arrow Right",
-      "category": "Arrow",
-      "type": "monochrome",
-      "keywords": ["arrow", "right", "direction", "navigate", "next", "forward"],
-      "innerSvg": "<path d=\"M5 12H19M13 6L19 12L13 18\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>"
-    },
-    {
-      "id": "arrow_left_line",
-      "name": "Arrow Left",
-      "category": "Arrow",
-      "type": "monochrome",
-      "keywords": ["arrow", "left", "direction", "back", "previous", "return"],
-      "innerSvg": "<path d=\"M19 12H5M11 18L5 12L11 6\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>"
-    },
-    {
-      "id": "arrow_up_line",
-      "name": "Arrow Up",
-      "category": "Arrow",
-      "type": "monochrome",
-      "keywords": ["arrow", "up", "direction", "top", "scroll", "ascending"],
-      "innerSvg": "<path d=\"M12 19V5M6 11L12 5L18 11\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>"
-    },
-    {
-      "id": "arrow_down_line",
-      "name": "Arrow Down",
-      "category": "Arrow",
-      "type": "monochrome",
-      "keywords": ["arrow", "down", "direction", "bottom", "scroll", "descending"],
-      "innerSvg": "<path d=\"M12 5V19M18 13L12 19L6 13\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>"
-    },
-    {
-      "id": "chevron_right_line",
-      "name": "Chevron Right",
-      "category": "Arrow",
-      "type": "monochrome",
-      "keywords": ["chevron", "right", "arrow", "angle", "expand", "next"],
-      "innerSvg": "<path d=\"M9 18L15 12L9 6\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>"
-    },
-    {
-      "id": "chevron_left_line",
-      "name": "Chevron Left",
-      "category": "Arrow",
-      "type": "monochrome",
-      "keywords": ["chevron", "left", "arrow", "angle", "collapse", "back"],
-      "innerSvg": "<path d=\"M15 18L9 12L15 6\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>"
-    },
-    {
-      "id": "chevron_down_line",
-      "name": "Chevron Down",
-      "category": "Arrow",
-      "type": "monochrome",
-      "keywords": ["chevron", "down", "arrow", "angle", "dropdown", "expand"],
-      "innerSvg": "<path d=\"M6 9L12 15L18 9\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>"
-    },
-    {
-      "id": "home_line",
-      "name": "Home",
-      "category": "Navigation",
-      "type": "monochrome",
-      "keywords": ["home", "house", "main", "start", "index", "dashboard"],
-      "innerSvg": "<path d=\"M3 10.5L12 3L21 10.5V20C21 20.5523 20.5523 21 20 21H15V16H9V21H4C3.44772 21 3 20.5523 3 20V10.5Z\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linejoin=\"round\"/>"
-    },
-    {
-      "id": "search_line",
-      "name": "Search",
-      "category": "Navigation",
-      "type": "monochrome",
-      "keywords": ["search", "find", "magnify", "look", "query", "explore"],
-      "innerSvg": "<circle cx=\"11\" cy=\"11\" r=\"7\" stroke=\"currentColor\" stroke-width=\"1.5\"/><path d=\"M16.5 16.5L21 21\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\"/>"
-    },
-    {
-      "id": "menu_line",
-      "name": "Menu",
-      "category": "Navigation",
-      "type": "monochrome",
-      "keywords": ["menu", "hamburger", "nav", "navigation", "sidebar", "list"],
-      "innerSvg": "<path d=\"M4 6H20M4 12H20M4 18H20\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\"/>"
-    },
-    {
-      "id": "grid_line",
-      "name": "Grid",
-      "category": "Navigation",
-      "type": "monochrome",
-      "keywords": ["grid", "layout", "tiles", "gallery", "view", "four"],
-      "innerSvg": "<rect x=\"3\" y=\"3\" width=\"7\" height=\"7\" rx=\"1\" stroke=\"currentColor\" stroke-width=\"1.5\"/><rect x=\"14\" y=\"3\" width=\"7\" height=\"7\" rx=\"1\" stroke=\"currentColor\" stroke-width=\"1.5\"/><rect x=\"3\" y=\"14\" width=\"7\" height=\"7\" rx=\"1\" stroke=\"currentColor\" stroke-width=\"1.5\"/><rect x=\"14\" y=\"14\" width=\"7\" height=\"7\" rx=\"1\" stroke=\"currentColor\" stroke-width=\"1.5\"/>"
-    },
-    {
-      "id": "list_line",
-      "name": "List",
-      "category": "Navigation",
-      "type": "monochrome",
-      "keywords": ["list", "bullet", "items", "rows", "outline", "view"],
-      "innerSvg": "<path d=\"M8 6H20M8 12H20M8 18H20M4.5 6H4.51M4.5 12H4.51M4.5 18H4.51\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\"/>"
-    },
-    {
-      "id": "plus_line",
-      "name": "Plus",
+      "id": "check_line",
+      "name": "Check",
       "category": "Action",
       "type": "monochrome",
-      "keywords": ["plus", "add", "create", "new", "increase", "cross"],
-      "innerSvg": "<path d=\"M12 5V19M5 12H19\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\"/>"
-    },
-    {
-      "id": "minus_line",
-      "name": "Minus",
-      "category": "Action",
-      "type": "monochrome",
-      "keywords": ["minus", "remove", "subtract", "decrease", "dash", "line"],
-      "innerSvg": "<path d=\"M5 12H19\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\"/>"
+      "keywords": [
+        "check",
+        "done",
+        "complete",
+        "confirm",
+        "tick",
+        "success",
+        "yes"
+      ],
+      "innerSvg": "<path d=\"M4 12L9.5 17.5L20 7\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>"
     },
     {
       "id": "close_line",
       "name": "Close",
       "category": "Action",
       "type": "monochrome",
-      "keywords": ["close", "cancel", "dismiss", "x", "delete", "remove", "clear"],
+      "keywords": [
+        "close",
+        "cancel",
+        "dismiss",
+        "x",
+        "delete",
+        "remove",
+        "clear"
+      ],
       "innerSvg": "<path d=\"M18 6L6 18M6 6L18 18\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\"/>"
-    },
-    {
-      "id": "check_line",
-      "name": "Check",
-      "category": "Action",
-      "type": "monochrome",
-      "keywords": ["check", "done", "complete", "confirm", "tick", "success", "yes"],
-      "innerSvg": "<path d=\"M4 12L9.5 17.5L20 7\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>"
-    },
-    {
-      "id": "edit_line",
-      "name": "Edit",
-      "category": "Action",
-      "type": "monochrome",
-      "keywords": ["edit", "pencil", "write", "modify", "update", "pen", "compose"],
-      "innerSvg": "<path d=\"M11 4H4C3.44772 4 3 4.44772 3 5V20C3 20.5523 3.44772 21 4 21H19C19.5523 21 20 20.5523 20 20V13\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M18.5 2.5C18.8978 2.10218 19.4374 1.87868 20 1.87868C20.5626 1.87868 21.1022 2.10218 21.5 2.5C21.8978 2.89782 22.1213 3.43739 22.1213 4C22.1213 4.56261 21.8978 5.10218 21.5 5.5L12 15L8 16L9 12L18.5 2.5Z\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>"
-    },
-    {
-      "id": "trash_line",
-      "name": "Trash",
-      "category": "Action",
-      "type": "monochrome",
-      "keywords": ["trash", "delete", "remove", "bin", "garbage", "dispose"],
-      "innerSvg": "<path d=\"M3 6H5H21\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\"/><path d=\"M8 6V4C8 3.44772 8.44772 3 9 3H15C15.5523 3 16 3.44772 16 4V6M19 6V20C19 20.5523 18.5523 21 18 21H6C5.44772 21 5 20.5523 5 20V6H19Z\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linejoin=\"round\"/>"
     },
     {
       "id": "download_line",
       "name": "Download",
       "category": "Action",
       "type": "monochrome",
-      "keywords": ["download", "save", "export", "arrow", "get", "receive"],
+      "keywords": [
+        "download",
+        "save",
+        "export",
+        "arrow",
+        "get",
+        "receive"
+      ],
       "innerSvg": "<path d=\"M21 15V19C21 20.1046 20.1046 21 19 21H5C3.89543 21 3 20.1046 3 19V15\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\"/><path d=\"M7 10L12 15L17 10\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><line x1=\"12\" y1=\"15\" x2=\"12\" y2=\"3\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\"/>"
     },
     {
-      "id": "copy_line",
-      "name": "Copy",
-      "category": "Utility",
+      "id": "edit_line",
+      "name": "Edit",
+      "category": "Action",
       "type": "monochrome",
-      "keywords": ["copy", "duplicate", "clone", "clipboard", "paste"],
-      "innerSvg": "<rect x=\"9\" y=\"9\" width=\"13\" height=\"13\" rx=\"2\" stroke=\"currentColor\" stroke-width=\"1.5\"/><path d=\"M5 15H4C2.89543 15 2 14.1046 2 13V4C2 2.89543 2.89543 2 4 2H13C14.1046 2 15 2.89543 15 4V5\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\"/>"
+      "keywords": [
+        "edit",
+        "pencil",
+        "write",
+        "modify",
+        "update",
+        "pen",
+        "compose"
+      ],
+      "innerSvg": "<path d=\"M11 4H4C3.44772 4 3 4.44772 3 5V20C3 20.5523 3.44772 21 4 21H19C19.5523 21 20 20.5523 20 20V13\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M18.5 2.5C18.8978 2.10218 19.4374 1.87868 20 1.87868C20.5626 1.87868 21.1022 2.10218 21.5 2.5C21.8978 2.89782 22.1213 3.43739 22.1213 4C22.1213 4.56261 21.8978 5.10218 21.5 5.5L12 15L8 16L9 12L18.5 2.5Z\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>"
     },
     {
-      "id": "upload_line",
-      "name": "Upload",
-      "category": "Utility",
+      "id": "minus_line",
+      "name": "Minus",
+      "category": "Action",
       "type": "monochrome",
-      "keywords": ["upload", "share", "send", "push", "publish", "import"],
-      "innerSvg": "<path d=\"M21 15V19C21 20.1046 20.1046 21 19 21H5C3.89543 21 3 20.1046 3 19V15\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\"/><path d=\"M17 8L12 3L7 8\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><line x1=\"12\" y1=\"3\" x2=\"12\" y2=\"15\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\"/>"
+      "keywords": [
+        "minus",
+        "remove",
+        "subtract",
+        "decrease",
+        "dash",
+        "line"
+      ],
+      "innerSvg": "<path d=\"M5 12H19\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\"/>"
     },
     {
-      "id": "settings_line",
-      "name": "Settings",
-      "category": "Utility",
+      "id": "plus_line",
+      "name": "Plus",
+      "category": "Action",
       "type": "monochrome",
-      "keywords": ["settings", "gear", "preferences", "configure", "options", "control"],
-      "innerSvg": "<circle cx=\"12\" cy=\"12\" r=\"3\" stroke=\"currentColor\" stroke-width=\"1.5\"/><path d=\"M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z\" stroke=\"currentColor\" stroke-width=\"1.5\"/>"
+      "keywords": [
+        "plus",
+        "add",
+        "create",
+        "new",
+        "increase",
+        "cross"
+      ],
+      "innerSvg": "<path d=\"M12 5V19M5 12H19\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\"/>"
     },
     {
-      "id": "filter_line",
-      "name": "Filter",
-      "category": "Utility",
+      "id": "trash_line",
+      "name": "Trash",
+      "category": "Action",
       "type": "monochrome",
-      "keywords": ["filter", "funnel", "sort", "narrow", "refine", "sieve"],
-      "innerSvg": "<path d=\"M22 3H2L10 12.46V19L14 21V12.46L22 3Z\" stroke=\"currentColor\" stroke-width=\"1.5\" fill=\"none\" stroke-linejoin=\"round\"/>"
+      "keywords": [
+        "trash",
+        "delete",
+        "remove",
+        "bin",
+        "garbage",
+        "dispose"
+      ],
+      "innerSvg": "<path d=\"M3 6H5H21\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\"/><path d=\"M8 6V4C8 3.44772 8.44772 3 9 3H15C15.5523 3 16 3.44772 16 4V6M19 6V20C19 20.5523 18.5523 21 18 21H6C5.44772 21 5 20.5523 5 20V6H19Z\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linejoin=\"round\"/>"
+    },
+    {
+      "id": "arrow_down_line",
+      "name": "Arrow Down",
+      "category": "Arrow",
+      "type": "monochrome",
+      "keywords": [
+        "arrow",
+        "down",
+        "direction",
+        "bottom",
+        "scroll",
+        "descending"
+      ],
+      "innerSvg": "<path d=\"M12 5V19M18 13L12 19L6 13\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>"
+    },
+    {
+      "id": "arrow_left_line",
+      "name": "Arrow Left",
+      "category": "Arrow",
+      "type": "monochrome",
+      "keywords": [
+        "arrow",
+        "left",
+        "direction",
+        "back",
+        "previous",
+        "return"
+      ],
+      "innerSvg": "<path d=\"M19 12H5M11 18L5 12L11 6\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>"
+    },
+    {
+      "id": "arrow_right_line",
+      "name": "Arrow Right",
+      "category": "Arrow",
+      "type": "monochrome",
+      "keywords": [
+        "arrow",
+        "right",
+        "direction",
+        "navigate",
+        "next",
+        "forward"
+      ],
+      "innerSvg": "<path d=\"M5 12H19M13 6L19 12L13 18\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>"
+    },
+    {
+      "id": "arrow_up_line",
+      "name": "Arrow Up",
+      "category": "Arrow",
+      "type": "monochrome",
+      "keywords": [
+        "arrow",
+        "up",
+        "direction",
+        "top",
+        "scroll",
+        "ascending"
+      ],
+      "innerSvg": "<path d=\"M12 19V5M6 11L12 5L18 11\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>"
+    },
+    {
+      "id": "chevron_down_line",
+      "name": "Chevron Down",
+      "category": "Arrow",
+      "type": "monochrome",
+      "keywords": [
+        "chevron",
+        "down",
+        "arrow",
+        "angle",
+        "dropdown",
+        "expand"
+      ],
+      "innerSvg": "<path d=\"M6 9L12 15L18 9\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>"
+    },
+    {
+      "id": "chevron_left_line",
+      "name": "Chevron Left",
+      "category": "Arrow",
+      "type": "monochrome",
+      "keywords": [
+        "chevron",
+        "left",
+        "arrow",
+        "angle",
+        "collapse",
+        "back"
+      ],
+      "innerSvg": "<path d=\"M15 18L9 12L15 6\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>"
+    },
+    {
+      "id": "chevron_right_line",
+      "name": "Chevron Right",
+      "category": "Arrow",
+      "type": "monochrome",
+      "keywords": [
+        "chevron",
+        "right",
+        "arrow",
+        "angle",
+        "expand",
+        "next"
+      ],
+      "innerSvg": "<path d=\"M9 18L15 12L9 6\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>"
+    },
+    {
+      "id": "bell_line",
+      "name": "Bell",
+      "category": "Communication",
+      "type": "monochrome",
+      "keywords": [
+        "bell",
+        "notification",
+        "alert",
+        "alarm",
+        "ring",
+        "remind"
+      ],
+      "innerSvg": "<path d=\"M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M13.73 21a2 2 0 0 1-3.46 0\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\"/>"
+    },
+    {
+      "id": "chat_line",
+      "name": "Chat",
+      "category": "Communication",
+      "type": "monochrome",
+      "keywords": [
+        "chat",
+        "message",
+        "bubble",
+        "talk",
+        "conversation",
+        "comment"
+      ],
+      "innerSvg": "<path d=\"M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linejoin=\"round\"/>"
     },
     {
       "id": "mail_line",
       "name": "Mail",
       "category": "Communication",
       "type": "monochrome",
-      "keywords": ["mail", "email", "envelope", "message", "send", "inbox"],
+      "keywords": [
+        "mail",
+        "email",
+        "envelope",
+        "message",
+        "send",
+        "inbox"
+      ],
       "innerSvg": "<rect x=\"2\" y=\"4\" width=\"20\" height=\"16\" rx=\"2\" stroke=\"currentColor\" stroke-width=\"1.5\"/><path d=\"M2 8L12 13L22 8\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linejoin=\"round\"/>"
     },
     {
@@ -199,95 +265,41 @@
       "name": "Phone",
       "category": "Communication",
       "type": "monochrome",
-      "keywords": ["phone", "call", "contact", "dial", "ring", "mobile"],
+      "keywords": [
+        "phone",
+        "call",
+        "contact",
+        "dial",
+        "ring",
+        "mobile"
+      ],
       "innerSvg": "<path d=\"M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.72 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.63 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.63a16 16 0 0 0 6.29 6.29l.95-.98a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linejoin=\"round\"/>"
     },
     {
-      "id": "chat_line",
-      "name": "Chat",
-      "category": "Communication",
+      "id": "linkcopyoutlined20bkenabled_line",
+      "name": "linkcopy_outlined_20_bk_enabled",
+      "category": "File",
       "type": "monochrome",
-      "keywords": ["chat", "message", "bubble", "talk", "conversation", "comment"],
-      "innerSvg": "<path d=\"M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linejoin=\"round\"/>"
-    },
-    {
-      "id": "bell_line",
-      "name": "Bell",
-      "category": "Communication",
-      "type": "monochrome",
-      "keywords": ["bell", "notification", "alert", "alarm", "ring", "remind"],
-      "innerSvg": "<path d=\"M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M13.73 21a2 2 0 0 1-3.46 0\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\"/>"
-    },
-    {
-      "id": "info_line",
-      "name": "Info",
-      "category": "Status",
-      "type": "monochrome",
-      "keywords": ["info", "information", "about", "help", "detail", "circle"],
-      "innerSvg": "<circle cx=\"12\" cy=\"12\" r=\"10\" stroke=\"currentColor\" stroke-width=\"1.5\"/><path d=\"M12 16V12\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\"/><path d=\"M12 8H12.01\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>"
-    },
-    {
-      "id": "warning_line",
-      "name": "Warning",
-      "category": "Status",
-      "type": "monochrome",
-      "keywords": ["warning", "alert", "caution", "triangle", "attention", "danger"],
-      "innerSvg": "<path d=\"M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linejoin=\"round\"/><path d=\"M12 9V13\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\"/><path d=\"M12 17H12.01\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>"
-    },
-    {
-      "id": "star_line",
-      "name": "Star",
-      "category": "Status",
-      "type": "monochrome",
-      "keywords": ["star", "favorite", "rating", "bookmark", "like", "save"],
-      "innerSvg": "<polygon points=\"12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linejoin=\"round\"/>"
-    },
-    {
-      "id": "heart_line",
-      "name": "Heart",
-      "category": "Status",
-      "type": "monochrome",
-      "keywords": ["heart", "love", "like", "favorite", "wish", "care"],
-      "innerSvg": "<path d=\"M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linejoin=\"round\"/>"
-    },
-    {
-      "id": "user_line",
-      "name": "User",
-      "category": "User",
-      "type": "monochrome",
-      "keywords": ["user", "person", "profile", "account", "member", "human"],
-      "innerSvg": "<path d=\"M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\"/><circle cx=\"12\" cy=\"7\" r=\"4\" stroke=\"currentColor\" stroke-width=\"1.5\"/>"
-    },
-    {
-      "id": "lock_line",
-      "name": "Lock",
-      "category": "User",
-      "type": "monochrome",
-      "keywords": ["lock", "secure", "privacy", "password", "closed", "protect"],
-      "innerSvg": "<rect x=\"3\" y=\"11\" width=\"18\" height=\"11\" rx=\"2\" stroke=\"currentColor\" stroke-width=\"1.5\"/><path d=\"M7 11V7a5 5 0 0 1 10 0v4\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\"/>"
-    },
-    {
-      "id": "unlock_line",
-      "name": "Unlock",
-      "category": "User",
-      "type": "monochrome",
-      "keywords": ["unlock", "open", "access", "password", "free", "available"],
-      "innerSvg": "<rect x=\"3\" y=\"11\" width=\"18\" height=\"11\" rx=\"2\" stroke=\"currentColor\" stroke-width=\"1.5\"/><path d=\"M7 11V7a5 5 0 0 1 9.9-1\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\"/>"
-    },
-    {
-      "id": "location_fill",
-      "name": "Location",
-      "category": "Multicolor",
-      "type": "multicolor",
-      "keywords": ["location", "map", "pin", "place", "address", "where", "geo"],
-      "innerSvg": "<path d=\"M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z\" fill=\"#FF4B4B\" stroke=\"#FF4B4B\" stroke-width=\"1\" stroke-linejoin=\"round\"/><circle cx=\"12\" cy=\"9\" r=\"2.5\" fill=\"white\"/>"
+      "keywords": [
+        "link",
+        "file"
+      ],
+      "innerSvg": "<g clip-path=\"url(#clip0_347_2356)\">\n<path d=\"M14.5453 11.515L15.3029 10.7574C16.9766 9.08371 16.9766 6.37015 15.3029 4.69647C13.6292 3.0228 10.9157 3.0228 9.242 4.69647L8.48439 5.45409\" stroke=\"#1B1B1B\" stroke-linecap=\"round\"/>\n<path d=\"M12.2726 13.7887L10.7574 15.3039C9.08371 16.9776 6.37015 16.9776 4.69647 15.3039C3.0228 13.6302 3.0228 10.9167 4.69647 9.24298L6.2117 7.72775\" stroke=\"#1B1B1B\" stroke-linecap=\"round\"/>\n<path d=\"M11.8936 8.10547L8.10548 11.8935\" stroke=\"#1B1B1B\" stroke-linecap=\"round\"/>\n</g>\n<defs>\n<clipPath id=\"clip0_347_2356\">\n<rect width=\"20\" height=\"20\" fill=\"white\"/>\n</clipPath>\n</defs>"
     },
     {
       "id": "badge_check_fill",
       "name": "Badge Check",
       "category": "Multicolor",
       "type": "multicolor",
-      "keywords": ["badge", "check", "verified", "certified", "approved", "official", "trust"],
+      "keywords": [
+        "badge",
+        "check",
+        "verified",
+        "certified",
+        "approved",
+        "official",
+        "trust"
+      ],
       "innerSvg": "<path d=\"M12 2L14.4 7.5L20.4 8.4L16.2 12.5L17.3 18.5L12 15.6L6.7 18.5L7.8 12.5L3.6 8.4L9.6 7.5L12 2Z\" fill=\"#4F9CF9\" stroke=\"#4F9CF9\" stroke-width=\"1\" stroke-linejoin=\"round\"/><path d=\"M9 12L11 14L15 10\" stroke=\"white\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>"
     },
     {
@@ -295,8 +307,270 @@
       "name": "Bookmark",
       "category": "Multicolor",
       "type": "multicolor",
-      "keywords": ["bookmark", "save", "ribbon", "mark", "remember", "collect"],
+      "keywords": [
+        "bookmark",
+        "save",
+        "ribbon",
+        "mark",
+        "remember",
+        "collect"
+      ],
       "innerSvg": "<path d=\"M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z\" fill=\"#FFB800\" stroke=\"#FFB800\" stroke-width=\"1.5\" stroke-linejoin=\"round\"/>"
+    },
+    {
+      "id": "location_fill",
+      "name": "Location",
+      "category": "Multicolor",
+      "type": "multicolor",
+      "keywords": [
+        "location",
+        "map",
+        "pin",
+        "place",
+        "address",
+        "where",
+        "geo"
+      ],
+      "innerSvg": "<path d=\"M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z\" fill=\"#FF4B4B\" stroke=\"#FF4B4B\" stroke-width=\"1\" stroke-linejoin=\"round\"/><circle cx=\"12\" cy=\"9\" r=\"2.5\" fill=\"white\"/>"
+    },
+    {
+      "id": "grid_line",
+      "name": "Grid",
+      "category": "Navigation",
+      "type": "monochrome",
+      "keywords": [
+        "grid",
+        "layout",
+        "tiles",
+        "gallery",
+        "view",
+        "four"
+      ],
+      "innerSvg": "<rect x=\"3\" y=\"3\" width=\"7\" height=\"7\" rx=\"1\" stroke=\"currentColor\" stroke-width=\"1.5\"/><rect x=\"14\" y=\"3\" width=\"7\" height=\"7\" rx=\"1\" stroke=\"currentColor\" stroke-width=\"1.5\"/><rect x=\"3\" y=\"14\" width=\"7\" height=\"7\" rx=\"1\" stroke=\"currentColor\" stroke-width=\"1.5\"/><rect x=\"14\" y=\"14\" width=\"7\" height=\"7\" rx=\"1\" stroke=\"currentColor\" stroke-width=\"1.5\"/>"
+    },
+    {
+      "id": "home_line",
+      "name": "Home",
+      "category": "Navigation",
+      "type": "monochrome",
+      "keywords": [
+        "home",
+        "house",
+        "main",
+        "start",
+        "index",
+        "dashboard"
+      ],
+      "innerSvg": "<path d=\"M3 10.5L12 3L21 10.5V20C21 20.5523 20.5523 21 20 21H15V16H9V21H4C3.44772 21 3 20.5523 3 20V10.5Z\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linejoin=\"round\"/>"
+    },
+    {
+      "id": "list_line",
+      "name": "List",
+      "category": "Navigation",
+      "type": "monochrome",
+      "keywords": [
+        "list",
+        "bullet",
+        "items",
+        "rows",
+        "outline",
+        "view"
+      ],
+      "innerSvg": "<path d=\"M8 6H20M8 12H20M8 18H20M4.5 6H4.51M4.5 12H4.51M4.5 18H4.51\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\"/>"
+    },
+    {
+      "id": "menu_line",
+      "name": "Menu",
+      "category": "Navigation",
+      "type": "monochrome",
+      "keywords": [
+        "menu",
+        "hamburger",
+        "nav",
+        "navigation",
+        "sidebar",
+        "list"
+      ],
+      "innerSvg": "<path d=\"M4 6H20M4 12H20M4 18H20\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\"/>"
+    },
+    {
+      "id": "search_line",
+      "name": "Search",
+      "category": "Navigation",
+      "type": "monochrome",
+      "keywords": [
+        "search",
+        "find",
+        "magnify",
+        "look",
+        "query",
+        "explore"
+      ],
+      "innerSvg": "<circle cx=\"11\" cy=\"11\" r=\"7\" stroke=\"currentColor\" stroke-width=\"1.5\"/><path d=\"M16.5 16.5L21 21\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\"/>"
+    },
+    {
+      "id": "heart_line",
+      "name": "Heart",
+      "category": "Status",
+      "type": "monochrome",
+      "keywords": [
+        "heart",
+        "love",
+        "like",
+        "favorite",
+        "wish",
+        "care"
+      ],
+      "innerSvg": "<path d=\"M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linejoin=\"round\"/>"
+    },
+    {
+      "id": "info_line",
+      "name": "Info",
+      "category": "Status",
+      "type": "monochrome",
+      "keywords": [
+        "info",
+        "information",
+        "about",
+        "help",
+        "detail",
+        "circle"
+      ],
+      "innerSvg": "<circle cx=\"12\" cy=\"12\" r=\"10\" stroke=\"currentColor\" stroke-width=\"1.5\"/><path d=\"M12 16V12\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\"/><path d=\"M12 8H12.01\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>"
+    },
+    {
+      "id": "star_line",
+      "name": "Star",
+      "category": "Status",
+      "type": "monochrome",
+      "keywords": [
+        "star",
+        "favorite",
+        "rating",
+        "bookmark",
+        "like",
+        "save"
+      ],
+      "innerSvg": "<polygon points=\"12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linejoin=\"round\"/>"
+    },
+    {
+      "id": "warning_line",
+      "name": "Warning",
+      "category": "Status",
+      "type": "monochrome",
+      "keywords": [
+        "warning",
+        "alert",
+        "caution",
+        "triangle",
+        "attention",
+        "danger"
+      ],
+      "innerSvg": "<path d=\"M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linejoin=\"round\"/><path d=\"M12 9V13\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\"/><path d=\"M12 17H12.01\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>"
+    },
+    {
+      "id": "lock_line",
+      "name": "Lock",
+      "category": "User",
+      "type": "monochrome",
+      "keywords": [
+        "lock",
+        "secure",
+        "privacy",
+        "password",
+        "closed",
+        "protect"
+      ],
+      "innerSvg": "<rect x=\"3\" y=\"11\" width=\"18\" height=\"11\" rx=\"2\" stroke=\"currentColor\" stroke-width=\"1.5\"/><path d=\"M7 11V7a5 5 0 0 1 10 0v4\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\"/>"
+    },
+    {
+      "id": "unlock_line",
+      "name": "Unlock",
+      "category": "User",
+      "type": "monochrome",
+      "keywords": [
+        "unlock",
+        "open",
+        "access",
+        "password",
+        "free",
+        "available"
+      ],
+      "innerSvg": "<rect x=\"3\" y=\"11\" width=\"18\" height=\"11\" rx=\"2\" stroke=\"currentColor\" stroke-width=\"1.5\"/><path d=\"M7 11V7a5 5 0 0 1 9.9-1\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\"/>"
+    },
+    {
+      "id": "user_line",
+      "name": "User",
+      "category": "User",
+      "type": "monochrome",
+      "keywords": [
+        "user",
+        "person",
+        "profile",
+        "account",
+        "member",
+        "human"
+      ],
+      "innerSvg": "<path d=\"M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\"/><circle cx=\"12\" cy=\"7\" r=\"4\" stroke=\"currentColor\" stroke-width=\"1.5\"/>"
+    },
+    {
+      "id": "copy_line",
+      "name": "Copy",
+      "category": "Utility",
+      "type": "monochrome",
+      "keywords": [
+        "copy",
+        "duplicate",
+        "clone",
+        "clipboard",
+        "paste"
+      ],
+      "innerSvg": "<rect x=\"9\" y=\"9\" width=\"13\" height=\"13\" rx=\"2\" stroke=\"currentColor\" stroke-width=\"1.5\"/><path d=\"M5 15H4C2.89543 15 2 14.1046 2 13V4C2 2.89543 2.89543 2 4 2H13C14.1046 2 15 2.89543 15 4V5\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\"/>"
+    },
+    {
+      "id": "filter_line",
+      "name": "Filter",
+      "category": "Utility",
+      "type": "monochrome",
+      "keywords": [
+        "filter",
+        "funnel",
+        "sort",
+        "narrow",
+        "refine",
+        "sieve"
+      ],
+      "innerSvg": "<path d=\"M22 3H2L10 12.46V19L14 21V12.46L22 3Z\" stroke=\"currentColor\" stroke-width=\"1.5\" fill=\"none\" stroke-linejoin=\"round\"/>"
+    },
+    {
+      "id": "settings_line",
+      "name": "Settings",
+      "category": "Utility",
+      "type": "monochrome",
+      "keywords": [
+        "settings",
+        "gear",
+        "preferences",
+        "configure",
+        "options",
+        "control"
+      ],
+      "innerSvg": "<circle cx=\"12\" cy=\"12\" r=\"3\" stroke=\"currentColor\" stroke-width=\"1.5\"/><path d=\"M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z\" stroke=\"currentColor\" stroke-width=\"1.5\"/>"
+    },
+    {
+      "id": "upload_line",
+      "name": "Upload",
+      "category": "Utility",
+      "type": "monochrome",
+      "keywords": [
+        "upload",
+        "share",
+        "send",
+        "push",
+        "publish",
+        "import"
+      ],
+      "innerSvg": "<path d=\"M21 15V19C21 20.1046 20.1046 21 19 21H5C3.89543 21 3 20.1046 3 19V15\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\"/><path d=\"M17 8L12 3L7 8\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><line x1=\"12\" y1=\"3\" x2=\"12\" y2=\"15\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\"/>"
     }
   ]
 }
