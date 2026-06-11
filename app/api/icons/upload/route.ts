@@ -5,6 +5,16 @@ import { IconData, IconManifest } from "@/lib/icons";
 
 const MANIFEST_PATH = join(process.cwd(), "public", "icons", "manifest.json");
 
+const CORS = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Methods": "POST, OPTIONS",
+  "Access-Control-Allow-Headers": "Content-Type",
+};
+
+export async function OPTIONS() {
+  return new NextResponse(null, { status: 204, headers: CORS });
+}
+
 export async function POST(req: NextRequest) {
   try {
     const icon: IconData = await req.json();
@@ -55,12 +65,12 @@ export async function POST(req: NextRequest) {
     // Write back
     writeFileSync(MANIFEST_PATH, JSON.stringify(manifest, null, 2));
 
-    return NextResponse.json(manifest, { status: 200 });
+    return NextResponse.json(manifest, { status: 200, headers: CORS });
   } catch (err) {
     console.error("Icon upload error:", err);
     return NextResponse.json(
       { error: "Internal server error" },
-      { status: 500 }
+      { status: 500, headers: CORS }
     );
   }
 }

@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Icon Library Uploader</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, "Inter", sans-serif;
+    font-size: 12px;
+    background: #ffffff;
+    color: #1a1a1a;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  /* ── Header ── */
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    border-bottom: 1px solid #e5e5e5;
+    flex-shrink: 0;
+  }
+  .header-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: #1a1a1a;
+  }
+  .header-count {
+    font-size: 11px;
+    color: #888;
+    background: #f0f0f0;
+    padding: 2px 8px;
+    border-radius: 10px;
+  }
+
+  /* ── API URL bar ── */
+  .api-bar {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    background: #fafafa;
+    border-bottom: 1px solid #e5e5e5;
+    flex-shrink: 0;
+  }
+  .api-bar label {
+    font-size: 10px;
+    font-weight: 600;
+    color: #888;
+    white-space: nowrap;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .api-bar input {
+    flex: 1;
+    font-size: 11px;
+    font-family: "SF Mono", monospace;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    padding: 4px 8px;
+    color: #555;
+    background: #fff;
+    outline: none;
+  }
+  .api-bar input:focus { border-color: #0066ff; }
+
+  /* ── Empty state ── */
+  .empty {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: #aaa;
+    padding: 32px;
+    text-align: center;
+  }
+  .empty svg { opacity: 0.4; }
+  .empty p { font-size: 12px; line-height: 1.5; }
+  .empty strong { color: #666; }
+
+  /* ── Scroll body ── */
+  .body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 12px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  /* ── Icon card ── */
+  .card {
+    border: 1px solid #e8e8e8;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .card-preview {
+    background: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 72px;
+    position: relative;
+  }
+  .card-preview svg {
+    width: 32px;
+    height: 32px;
+  }
+  .card-preview .icon-id {
+    position: absolute;
+    bottom: 6px;
+    left: 8px;
+    font-size: 9px;
+    font-family: "SF Mono", monospace;
+    color: #aaa;
+  }
+  .card-body {
+    padding: 10px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  /* ── Form row ── */
+  .row { display: flex; gap: 8px; }
+  .field { display: flex; flex-direction: column; gap: 3px; flex: 1; }
+  .field label {
+    font-size: 10px;
+    font-weight: 600;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .field input,
+  .field select {
+    font-size: 12px;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    padding: 5px 8px;
+    outline: none;
+    background: #fff;
+    color: #1a1a1a;
+    width: 100%;
+  }
+  .field input:focus,
+  .field select:focus { border-color: #0066ff; }
+  .field input.mono { font-family: "SF Mono", monospace; font-size: 11px; color: #555; }
+
+  /* ── Type toggle ── */
+  .type-toggle {
+    display: flex;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  .type-toggle button {
+    flex: 1;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 5px 6px;
+    border: none;
+    cursor: pointer;
+    background: #fff;
+    color: #888;
+    transition: all 0.15s;
+  }
+  .type-toggle button.active {
+    background: #1a1a1a;
+    color: #fff;
+  }
+  .type-toggle button:first-child { border-right: 1px solid #e0e0e0; }
+
+  /* ── Normalize toggle ── */
+  .normalize-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .normalize-row input[type="checkbox"] { cursor: pointer; }
+  .normalize-row label { font-size: 11px; color: #666; cursor: pointer; }
+
+  /* ── Upload btn ── */
+  .upload-btn {
+    width: 100%;
+    padding: 7px;
+    border: none;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    background: #0066ff;
+    color: #fff;
+    transition: background 0.15s;
+  }
+  .upload-btn:hover { background: #0052cc; }
+  .upload-btn:disabled { background: #cce0ff; cursor: default; }
+  .upload-btn.success { background: #1a8a3c; }
+  .upload-btn.error { background: #cc2222; }
+
+  /* ── Footer ── */
+  .footer {
+    padding: 10px 16px;
+    border-top: 1px solid #e5e5e5;
+    flex-shrink: 0;
+  }
+  .footer-actions {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+  .btn-all {
+    flex: 1;
+    padding: 8px;
+    border: none;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    background: #1a1a1a;
+    color: #fff;
+    transition: background 0.15s;
+  }
+  .btn-all:hover { background: #333; }
+  .btn-all:disabled { background: #ccc; cursor: default; }
+  .btn-refresh {
+    padding: 8px 10px;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    font-size: 12px;
+    cursor: pointer;
+    background: #fff;
+    color: #555;
+  }
+  .btn-refresh:hover { background: #f5f5f5; }
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+  <span class="header-title">Icon Library Uploader</span>
+  <span class="header-count" id="count-badge">선택 없음</span>
+</div>
+
+<!-- API URL -->
+<div class="api-bar">
+  <label>API</label>
+  <input type="text" id="api-url" value="https://icon-library-flax.vercel.app" placeholder="https://your-app.vercel.app" />
+</div>
+
+<!-- Icon list -->
+<div class="body" id="body">
+  <div class="empty" id="empty-state">
+    <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
+      <rect x="3" y="3" width="7" height="7" rx="1" stroke="#aaa" stroke-width="1.5"/>
+      <rect x="14" y="3" width="7" height="7" rx="1" stroke="#aaa" stroke-width="1.5"/>
+      <rect x="3" y="14" width="7" height="7" rx="1" stroke="#aaa" stroke-width="1.5"/>
+      <rect x="14" y="14" width="7" height="7" rx="1" stroke="#aaa" stroke-width="1.5"/>
+    </svg>
+    <p>피그마에서 <strong>아이콘 프레임을 선택</strong>하면<br/>여기에 미리보기가 나타나요.</p>
+    <p style="font-size:10px;color:#bbb">24×24 프레임 권장</p>
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="footer" id="footer" style="display:none">
+  <div class="footer-actions">
+    <button class="btn-all" id="btn-upload-all">전체 업로드</button>
+    <button class="btn-refresh" id="btn-refresh" title="새로고침">↺</button>
+  </div>
+</div>
+
+<script>
+  // ── State ────────────────────────────────────────────
+  let icons = []; // { name, svg, nodeId }
+
+  // ── Helpers ───────────────────────────────────────────
+  function toId(name, type) {
+    const base = name.toLowerCase()
+      .replace(/[^a-z0-9\s]/g, '')
+      .trim()
+      .replace(/\s+/g, '_');
+    const suffix = type === 'multicolor' ? '_fill' : '_line';
+    if (base.endsWith('_line') || base.endsWith('_fill')) return base;
+    return base + suffix;
+  }
+
+  function extractInnerSvg(svgString) {
+    const match = svgString.match(/<svg[^>]*>([\s\S]*?)<\/svg>/i);
+    return match ? match[1].trim() : svgString.trim();
+  }
+
+  function normalizeMonochrome(innerSvg) {
+    return innerSvg
+      .replace(/fill="(black|#000000|#000|#1a1a1a|#1A1A1A)"/gi, 'fill="currentColor"')
+      .replace(/stroke="(black|#000000|#000|#1a1a1a|#1A1A1A)"/gi, 'stroke="currentColor"')
+      .replace(/fill="none"\s+stroke="(black|#000000|#000)"/gi, 'fill="none" stroke="currentColor"');
+  }
+
+  function apiBase() {
+    return document.getElementById('api-url').value.trim().replace(/\/$/, '');
+  }
+
+  // ── Render ────────────────────────────────────────────
+  function render() {
+    const body = document.getElementById('body');
+    const emptyState = document.getElementById('empty-state');
+    const footer = document.getElementById('footer');
+    const badge = document.getElementById('count-badge');
+
+    if (icons.length === 0) {
+      emptyState.style.display = 'flex';
+      footer.style.display = 'none';
+      badge.textContent = '선택 없음';
+      // clear cards
+      Array.from(body.querySelectorAll('.card')).forEach(el => el.remove());
+      return;
+    }
+
+    badge.textContent = icons.length + '개 선택됨';
+    emptyState.style.display = 'none';
+    footer.style.display = 'block';
+
+    // Remove old cards
+    Array.from(body.querySelectorAll('.card')).forEach(el => el.remove());
+
+    icons.forEach((icon, idx) => {
+      const innerSvg = extractInnerSvg(icon.svg);
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.dataset.idx = idx;
+
+      const defaultType = 'monochrome';
+      const defaultId = toId(icon.name, defaultType);
+
+      card.innerHTML = `
+        <div class="card-preview">
+          <svg viewBox="0 0 24 24" fill="none" id="preview-${idx}">
+            ${normalizeMonochrome(innerSvg)}
+          </svg>
+          <span class="icon-id" id="id-display-${idx}">${defaultId}</span>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="field">
+              <label>이름</label>
+              <input type="text" id="name-${idx}" value="${icon.name}" />
+            </div>
+            <div class="field" style="max-width:160px">
+              <label>ID</label>
+              <input type="text" id="id-${idx}" value="${defaultId}" class="mono" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="field">
+              <label>카테고리</label>
+              <input type="text" id="category-${idx}" placeholder="Arrow, Navigation…" />
+            </div>
+            <div class="field">
+              <label>타입</label>
+              <div class="type-toggle">
+                <button class="active" data-type="monochrome" data-idx="${idx}" onclick="setType(${idx},'monochrome',this)">Mono</button>
+                <button data-type="multicolor" data-idx="${idx}" onclick="setType(${idx},'multicolor',this)">Multi</button>
+              </div>
+            </div>
+          </div>
+          <div class="field">
+            <label>키워드 <span style="font-weight:400;text-transform:none;letter-spacing:0">(쉼표로 구분)</span></label>
+            <input type="text" id="keywords-${idx}" placeholder="arrow, right, navigate" />
+          </div>
+          <div class="normalize-row">
+            <input type="checkbox" id="normalize-${idx}" checked />
+            <label for="normalize-${idx}">검정색 → currentColor 자동 변환 (모노크롬 권장)</label>
+          </div>
+          <button class="upload-btn" id="btn-${idx}" onclick="uploadOne(${idx})">↑ 업로드</button>
+        </div>
+      `;
+      body.appendChild(card);
+
+      // Auto-update ID when name changes
+      const nameInput = card.querySelector('#name-' + idx);
+      const idInput   = card.querySelector('#id-' + idx);
+      nameInput.addEventListener('input', () => {
+        const typeBtn = card.querySelector('.type-toggle button.active');
+        const t = typeBtn ? typeBtn.dataset.type : 'monochrome';
+        idInput.value = toId(nameInput.value, t);
+        document.getElementById('id-display-' + idx).textContent = idInput.value;
+      });
+      idInput.addEventListener('input', () => {
+        document.getElementById('id-display-' + idx).textContent = idInput.value;
+      });
+    });
+  }
+
+  function setType(idx, type, btn) {
+    // Toggle active
+    const card = document.querySelector('.card[data-idx="' + idx + '"]');
+    card.querySelectorAll('.type-toggle button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    // Update ID suffix
+    const nameInput = card.querySelector('#name-' + idx);
+    const idInput   = card.querySelector('#id-' + idx);
+    idInput.value = toId(nameInput.value, type);
+    document.getElementById('id-display-' + idx).textContent = idInput.value;
+
+    // Update preview normalization
+    updatePreview(idx);
+  }
+
+  function updatePreview(idx) {
+    const innerSvg = extractInnerSvg(icons[idx].svg);
+    const card = document.querySelector('.card[data-idx="' + idx + '"]');
+    const typeBtn = card.querySelector('.type-toggle button.active');
+    const isMonochrome = !typeBtn || typeBtn.dataset.type === 'monochrome';
+    const normalizeChecked = card.querySelector('#normalize-' + idx).checked;
+    const previewEl = document.getElementById('preview-' + idx);
+    previewEl.innerHTML = (isMonochrome && normalizeChecked) ? normalizeMonochrome(innerSvg) : innerSvg;
+  }
+
+  // ── Upload single ─────────────────────────────────────
+  async function uploadOne(idx) {
+    const card = document.querySelector('.card[data-idx="' + idx + '"]');
+    const btn = document.getElementById('btn-' + idx);
+
+    const name = document.getElementById('name-' + idx).value.trim();
+    const id   = document.getElementById('id-' + idx).value.trim();
+    const category = document.getElementById('category-' + idx).value.trim() || 'Other';
+    const keywords = document.getElementById('keywords-' + idx).value
+      .split(',').map(k => k.trim()).filter(Boolean);
+    const typeBtn = card.querySelector('.type-toggle button.active');
+    const type = typeBtn ? typeBtn.dataset.type : 'monochrome';
+    const normalize = document.getElementById('normalize-' + idx).checked;
+
+    let innerSvg = extractInnerSvg(icons[idx].svg);
+    if (type === 'monochrome' && normalize) {
+      innerSvg = normalizeMonochrome(innerSvg);
+    }
+
+    if (!name) { alert('이름을 입력해 주세요.'); return; }
+    if (!id)   { alert('ID를 입력해 주세요.'); return; }
+
+    btn.disabled = true;
+    btn.textContent = '업로드 중…';
+
+    try {
+      const res = await fetch(apiBase() + '/api/icons/upload', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id, name, category, type, keywords, innerSvg }),
+      });
+
+      if (!res.ok) {
+        const err = await res.json().catch(() => ({}));
+        throw new Error(err.error || '서버 오류 (' + res.status + ')');
+      }
+
+      btn.textContent = '✓ 완료!';
+      btn.classList.add('success');
+      parent.postMessage({ pluginMessage: { type: 'notify', text: '✓ "' + name + '" 업로드 완료!' } }, '*');
+
+      setTimeout(() => {
+        btn.textContent = '↑ 업로드';
+        btn.classList.remove('success');
+        btn.disabled = false;
+      }, 3000);
+    } catch (e) {
+      btn.textContent = '✕ 실패: ' + e.message;
+      btn.classList.add('error');
+      setTimeout(() => {
+        btn.textContent = '↑ 다시 시도';
+        btn.classList.remove('error');
+        btn.disabled = false;
+      }, 4000);
+    }
+  }
+
+  // ── Upload all ────────────────────────────────────────
+  document.getElementById('btn-upload-all').onclick = async function () {
+    const cards = document.querySelectorAll('.card');
+    this.disabled = true;
+    this.textContent = '업로드 중…';
+    for (let i = 0; i < cards.length; i++) {
+      await uploadOne(parseInt(cards[i].dataset.idx));
+    }
+    this.textContent = '✓ 전체 완료!';
+    setTimeout(() => {
+      this.textContent = '전체 업로드';
+      this.disabled = false;
+    }, 3000);
+  };
+
+  // ── Refresh ───────────────────────────────────────────
+  document.getElementById('btn-refresh').onclick = function () {
+    parent.postMessage({ pluginMessage: { type: 'refresh' } }, '*');
+  };
+
+  // ── Message from plugin sandbox ───────────────────────
+  window.onmessage = function (event) {
+    const msg = event.data.pluginMessage;
+    if (!msg) return;
+
+    if (msg.type === 'selection') {
+      icons = msg.icons || [];
+      render();
+    }
+    if (msg.type === 'error') {
+      console.error(msg.message);
+    }
+  };
+
+  // ── Init ──────────────────────────────────────────────
+  parent.postMessage({ pluginMessage: { type: 'ready' } }, '*');
+</script>
+</body>
+</html>
